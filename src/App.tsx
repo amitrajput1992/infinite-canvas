@@ -65,6 +65,9 @@ export interface ReactInfiniteCanvasProps {
   }>;
   onCanvasMount?: (functions: ReactInfiniteCanvasHandle) => void;
   onZoom?: (event: Event) => void;
+  zoomConfig?: {
+    delta: number
+  }
 }
 
 export interface CanvasState {
@@ -171,7 +174,10 @@ const ReactInfiniteCanvasRenderer = memo(
     customComponents = [],
     scrollBarConfig = {},
     backgroundConfig = {},
-    onCanvasMount = () => {}
+    onCanvasMount = () => {},
+    zoomConfig = {
+      delta: ZOOM_CONFIGS.DEFAULT_ZOOM_DELTA
+    }
   }: ReactInfiniteCanvasRendererProps) => {
     const canvasWrapperRef = useRef<HTMLDivElement | null>(null);
     const canvasWrapperBounds = useRef<DOMRect | null>(null);
@@ -350,7 +356,7 @@ const ReactInfiniteCanvasRenderer = memo(
             scrollBarRef.current?.onScrollDeltaChangeHandler(scrollDeltaValue);
             onScrollDeltaHandler(scrollDeltaValue);
           } else {
-            const nextZoom = currentZoom * 2 ** (-event.deltaY * 0.01);
+            const nextZoom = currentZoom * 2 ** (-event.deltaY * zoomConfig?.delta);
             const selection = d3Selection.current;
             if (selection) {
               d3Zoom.scaleTo(
