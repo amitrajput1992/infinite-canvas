@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/amitrajput1992/infinite-canvas/compare/v1.0.0...v1.1.0) (2025-05-09)
+
+
+### Features
+
+* zoom config ([96985ed](https://github.com/amitrajput1992/infinite-canvas/commit/96985ed49ca9c239eea7e2735925090c0714653a))
+
 # 1.0.0 (2025-05-09)
 
 
