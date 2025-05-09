@@ -1,6 +1,6 @@
 {
   "branches": ["main"],
-  "repositoryUrl": "https://github.com/KarthikAravindR/infinite-canvas.git",
+  "repositoryUrl": "https://github.com/amitrajput1992/infinite-canvas.git",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
